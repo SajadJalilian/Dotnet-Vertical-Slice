@@ -1,3 +1,5 @@
+using Blog.Api.Models;
+
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Persistence
@@ -9,7 +11,7 @@ namespace Blog.Persistence
         {
         }
 
-        // public virtual DbSet<Cluster> Clusters { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -2,30 +2,29 @@ using System.Linq.Expressions;
 
 using Blog.Domain;
 
-namespace Blog.Persistence.Repositories
+namespace Blog.Persistence.Repositories;
+
+public interface IRepository<TEntity> where TEntity : class, IEntity
 {
-    public interface IRepository<TEntity> where TEntity : class, IEntity
-    {
-        #region Queries
+    #region Queries
 
-        Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
+    Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
 
-        #endregion
+    #endregion
 
-        #region Commands
+    #region Commands
 
-        void Add(TEntity entity);
+    void Add(TEntity entity);
 
-        void Add(IEnumerable<TEntity> entities);
+    void Add(IEnumerable<TEntity> entities);
 
-        void Remove(TEntity entity);
+    void Remove(TEntity entity);
 
-        void Remove(IEnumerable<TEntity> entities);
+    void Remove(IEnumerable<TEntity> entities);
 
-        void Update(TEntity entity);
+    void Update(TEntity entity);
 
-        void Update(IEnumerable<TEntity> entities);
+    void Update(IEnumerable<TEntity> entities);
 
-        #endregion
-    }
+    #endregion
 }

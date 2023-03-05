@@ -1,3 +1,5 @@
+using Blog.Api.Models;
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Api.Controllers;
@@ -9,9 +11,42 @@ public class PostController : ControllerBase
     {
     }
 
-    [HttpGet(Routes.Post)]
-    public IEnumerable<WeatherForecast> GetPosts()
+    [HttpGet(Routes.Post + "{id}")]
+    public async Task<IActionResult>GetPost([FromRoute] int id)
     {
-        return
+        var post = new Post
+        {
+            Id = 1,
+            Title = "test",
+            Body = "test body"
+        };
+        return Ok(post);
+    }
+    
+    [HttpGet(Routes.Post)]
+    public async Task<IActionResult> GetPosts()
+    {
+        var post = new List<Post>()
+        {
+            new ()
+            {
+                Id = 1,
+                Title = "test",
+                Body = "test body"
+            },
+            new ()
+            {
+                Id = 2,
+                Title = "test2",
+                Body = "test body2"
+            },
+            new ()
+            {
+                Id = 3,
+                Title = "test3",
+                Body = "test body3"
+            },
+        };
+        return Ok(post);
     }
 }
