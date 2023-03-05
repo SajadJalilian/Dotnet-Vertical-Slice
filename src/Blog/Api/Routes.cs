@@ -1,4 +1,4 @@
-namespace Blog;
+namespace Blog.Api;
 
 public static class Routes
 {
