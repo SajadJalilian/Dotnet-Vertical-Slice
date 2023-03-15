@@ -1,6 +1,4 @@
-using Blog.Domain;
-
-namespace Blog.Api.Models;
+namespace Blog.Domain.Models;
 
 public class Post: IEntity
 {

@@ -1,5 +1,4 @@
-using Blog.Api.Models;
-
+using Blog.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Persistence
