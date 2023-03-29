@@ -1,6 +1,5 @@
 using Blog.Api.Extensions.DependencyInjections;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
+using Blog.Api.Extensions.Middlewares;
 
 #region AddServices
 
@@ -10,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
+builder.Services.AddConfiguredDatabase(builder.Configuration);
 
 #endregion
 
@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.UseConfiguredMigration();
+
 app.Run();
 
 #endregion

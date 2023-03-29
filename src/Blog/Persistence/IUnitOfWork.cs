@@ -1,8 +1,7 @@
-namespace Blog.Persistence
+namespace Blog.Persistence;
+
+public interface IUnitOfWork
 {
-    public interface IUnitOfWork
-    {
-        // ISubscriptionRepository Subscriptions { get; }
-        Task<bool> CommitAsync();
-    }
+    // ISubscriptionRepository Subscriptions { get; }
+    Task<bool> CommitAsync();
 }
