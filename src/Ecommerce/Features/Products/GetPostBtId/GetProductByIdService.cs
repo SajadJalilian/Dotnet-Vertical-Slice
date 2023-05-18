@@ -9,7 +9,7 @@ public interface IGetProductByIdService
 
 public class GetProductByIdService : IGetProductByIdService
 {
-    public async Task<Product> GetProductById()
+    public Task<Product> GetProductById()
     {
         var post = new Product
         {
@@ -21,6 +21,6 @@ public class GetProductByIdService : IGetProductByIdService
             UpdateAt = DateTime.Now
         };
 
-        return post;
+        return Task.FromResult(post);
     }
 }

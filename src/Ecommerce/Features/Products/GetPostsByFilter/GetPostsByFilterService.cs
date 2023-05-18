@@ -9,7 +9,7 @@ public interface IGetPostsByFilterService
 
 public class GetPostsByFilterService : IGetPostsByFilterService
 {
-    public async Task<IEnumerable<Product>> GetPostByFilter()
+    public Task<IEnumerable<Product>> GetPostByFilter()
     {
         var post = new List<Product>()
         {
@@ -42,6 +42,6 @@ public class GetPostsByFilterService : IGetPostsByFilterService
             },
         };
 
-        return post;
+        return Task.FromResult<IEnumerable<Product>>(post);
     }
 }

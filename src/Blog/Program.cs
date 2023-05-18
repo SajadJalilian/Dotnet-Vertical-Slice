@@ -1,15 +1,18 @@
-using Blog.Api.Extensions.DependencyInjections;
-using Blog.Api.Extensions.Middlewares;
+using Blog.Modules.Posts;
+using Blog.Shared.Api.Extensions.DependencyInjections;
+using Blog.Shared.Api.Extensions.Middlewares;
 
 #region AddServices
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddServices();
+builder.Host.ConfigureAppSettings();
+
 builder.Services.AddConfiguredDatabase(builder.Configuration);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
+builder.Services.AddSwaggerGen();
+builder.Services.AddPostServices();
 
 #endregion
 
@@ -17,16 +20,16 @@ builder.Services.AddConfiguredDatabase(builder.Configuration);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseRouting();
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
+
 app.MapControllers();
-app.UseConfiguredMigration();
 
 app.Run();
 
