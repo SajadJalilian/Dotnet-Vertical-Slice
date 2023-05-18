@@ -25,7 +25,7 @@ public class PostController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetPostsByFilter([FromRoute] GetPostsRequest request)
+    public async Task<IActionResult> GetPostsByFilter([FromQuery] GetPostsRequest request)
     {
         return Ok(await _getPostsByFilterService.GetPostByFilter());
     }
