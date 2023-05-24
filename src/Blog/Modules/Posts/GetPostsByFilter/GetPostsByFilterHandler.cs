@@ -1,11 +1,6 @@
 namespace Blog.Modules.Posts.GetPostsByFilter;
 
-public interface IGetPostsByFilterService
-{
-    Task<IEnumerable<Post>> GetPostByFilter();
-}
-
-public class GetPostsByFilterService : IGetPostsByFilterService
+public class GetPostsByFilterHandler : IGetPostsByFilterHandler
 {
     public Task<IEnumerable<Post>> GetPostByFilter()
     {

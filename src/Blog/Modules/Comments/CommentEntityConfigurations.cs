@@ -7,6 +7,7 @@ public class CommentEntityConfigurations: IEntityTypeConfiguration<Comment>
 {
     public void Configure(EntityTypeBuilder<Comment> builder)
     {
+        builder.ToTable("Comments");
         builder.HasKey(x => x.Id);
 
         builder.HasOne(x => x.Post)

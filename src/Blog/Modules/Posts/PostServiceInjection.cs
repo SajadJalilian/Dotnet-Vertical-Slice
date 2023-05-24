@@ -7,8 +7,8 @@ public static class PostServiceInjection
 {
     public static IServiceCollection AddPostServices(this IServiceCollection services)
     {
-        services.AddScoped<IGetPostByIdService, GetPostByIdService>();
-        services.AddScoped<IGetPostsByFilterService, GetPostsByFilterService>();
+        services.AddScoped<IGetPostByIdHandler, GetPostByIdHandler>();
+        services.AddScoped<IGetPostsByFilterHandler, GetPostsByFilterHandler>();
 
         return services;
     }

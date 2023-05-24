@@ -1,3 +1,4 @@
+using Blog.Modules.Posts.CreatePost;
 using Blog.Modules.Posts.GetPostBtId;
 using Blog.Modules.Posts.GetPostsByFilter;
 using Microsoft.AspNetCore.Mvc;
@@ -8,25 +9,35 @@ namespace Blog.Modules.Posts;
 [Route("posts/")]
 public class PostController : ControllerBase
 {
-    private readonly IGetPostByIdService _getPostByIdService;
-    private readonly IGetPostsByFilterService _getPostsByFilterService;
+    private readonly IGetPostByIdHandler _getPostByIdHandler;
+    private readonly IGetPostsByFilterHandler _getPostsByFilterHandler;
+    private readonly ICreatePostHandler _createPostHandler;
 
-    public PostController(IGetPostByIdService getPostByIdService,
-        IGetPostsByFilterService getPostsByFilterService)
+    public PostController(IGetPostByIdHandler getPostByIdHandler,
+        IGetPostsByFilterHandler getPostsByFilterHandler,
+        ICreatePostHandler createPostHandler)
     {
-        _getPostByIdService = getPostByIdService;
-        _getPostsByFilterService = getPostsByFilterService;
+        _getPostByIdHandler = getPostByIdHandler;
+        _getPostsByFilterHandler = getPostsByFilterHandler;
+        _createPostHandler = createPostHandler;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> CretePost([FromBody] CreatePostRequest request)
+    {
+        var result = await _createPostHandler.CreatePost(new CreatePostCommand(request.Title, request.Body));
+        return Ok(result);
     }
 
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetPost([FromRoute] int id)
     {
-        return Ok(await _getPostByIdService.GetPostById());
+        return Ok(await _getPostByIdHandler.GetPostById());
     }
 
     [HttpGet]
     public async Task<IActionResult> GetPostsByFilter([FromQuery] GetPostsRequest request)
     {
-        return Ok(await _getPostsByFilterService.GetPostByFilter());
+        return Ok(await _getPostsByFilterHandler.GetPostByFilter());
     }
 }

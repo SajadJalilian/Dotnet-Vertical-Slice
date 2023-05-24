@@ -1,5 +1,3 @@
-using Blog.Modules.Comments;
-using Blog.Modules.Posts;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Shared.Persistence;
