@@ -17,6 +17,18 @@ public class CreatePostHandler : ICreatePostHandler
     public async Task<Post> CreatePost(CreatePostCommand command)
     {
         // Validation
+        var validator = new CreatePostValidator();
+        var validationResult = await validator.ValidateAsync(command);
+
+        if (!validationResult.IsValid)
+        {
+            foreach (var error in validationResult.Errors)
+            {
+
+            }
+        }
+
+
         var post = new Post
         {
             Title = command.Title,
