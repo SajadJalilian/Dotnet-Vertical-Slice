@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Blog.Modules.Posts;
 
 [ApiController]
-[Route(PostsRoutes.Post)]
+[Route("posts/")]
 public class PostController : ControllerBase
 {
     private readonly IGetPostByIdService _getPostByIdService;

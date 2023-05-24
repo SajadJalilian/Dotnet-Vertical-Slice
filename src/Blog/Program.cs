@@ -1,6 +1,5 @@
 using Blog.Modules.Posts;
 using Blog.Shared.Api.Extensions.DependencyInjections;
-using Blog.Shared.Api.Extensions.Middlewares;
 
 #region AddServices
 
@@ -22,12 +21,16 @@ var app = builder.Build();
 
 app.UseRouting();
 
-app.UseSwagger();
-app.UseSwaggerUI(options =>
+var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+if (environment is "Local" or "Development" or "NewFeature" or "Staging")
 {
-    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-    options.RoutePrefix = string.Empty;
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
+}
 
 app.MapControllers();
 
