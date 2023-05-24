@@ -52,7 +52,7 @@ namespace Blog.Shared.Persistence.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Blog.Modules.Posts.Post", b =>
@@ -73,7 +73,7 @@ namespace Blog.Shared.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Post");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Blog.Modules.Comments.Comment", b =>

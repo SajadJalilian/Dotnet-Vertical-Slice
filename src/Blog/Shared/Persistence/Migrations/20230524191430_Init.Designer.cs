@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Blog.Shared.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230524120844_Init")]
+    [Migration("20230524191430_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -55,7 +55,7 @@ namespace Blog.Shared.Persistence.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comments", (string)null);
                 });
 
             modelBuilder.Entity("Blog.Modules.Posts.Post", b =>
@@ -76,7 +76,7 @@ namespace Blog.Shared.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Post");
+                    b.ToTable("Posts", (string)null);
                 });
 
             modelBuilder.Entity("Blog.Modules.Comments.Comment", b =>
