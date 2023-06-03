@@ -1,1 +1,1 @@
-# c-sharp-blueprint-sample
+# dotnet-vertical-slice-sample
