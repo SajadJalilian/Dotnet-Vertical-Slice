@@ -1,31 +1,21 @@
+using Blog.Shared.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 namespace Blog.Modules.Post.GetPostsByFilter;
 
 public class GetPostsByFilterHandler : IGetPostsByFilterHandler
 {
-    public Task<IEnumerable<Post>> GetPostByFilter()
-    {
-        var post = new List<Post>()
-        {
-            new ()
-            {
-                Id = 1,
-                Title = "test",
-                Body = "test body"
-            },
-            new ()
-            {
-                Id = 2,
-                Title = "test2",
-                Body = "test body2"
-            },
-            new ()
-            {
-                Id = 3,
-                Title = "test3",
-                Body = "test body3"
-            },
-        };
+    private readonly AppDbContext _context;
+    private readonly DbSet<Post> _posts;
 
-        return Task.FromResult<IEnumerable<Post>>(post);
+    public GetPostsByFilterHandler(AppDbContext context)
+    {
+        _context = context;
+        _posts = context.Set<Post>();
+    }
+
+    public async Task<IEnumerable<Post>> GetPostByFilter()
+    {
+        return await _posts.ToArrayAsync();
     }
 }

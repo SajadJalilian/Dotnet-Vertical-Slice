@@ -28,7 +28,6 @@ public class CreatePostHandler : ICreatePostHandler
             }
         }
 
-
         var post = new Post
         {
             Title = command.Title,

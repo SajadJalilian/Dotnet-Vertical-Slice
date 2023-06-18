@@ -1,5 +1,6 @@
 using Blog.Modules.Post;
 using Blog.Shared.Api.Extensions.DependencyInjections;
+using Blog.Shared.Api.Extensions.Middlewares;
 
 #region AddServices
 
@@ -29,6 +30,7 @@ if (environment is "Local" or "Development" or "NewFeature" or "Staging")
 }
 
 app.MapControllers();
+app.UseConfiguredMigration();
 
 app.Run();
 
