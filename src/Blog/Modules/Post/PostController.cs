@@ -32,7 +32,7 @@ public class PostController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<IActionResult> GetPost([FromRoute] int id)
     {
-        return Ok(await _getPostByIdHandler.GetPostById());
+        return Ok(await _getPostByIdHandler.GetPostById(id));
     }
 
     [HttpGet]
