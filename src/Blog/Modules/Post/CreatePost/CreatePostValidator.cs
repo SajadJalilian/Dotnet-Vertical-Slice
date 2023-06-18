@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace Blog.Modules.Posts.CreatePost;
+namespace Blog.Modules.Post.CreatePost;
 
 public class CreatePostValidator: AbstractValidator<CreatePostCommand>
 {

@@ -1,6 +1,4 @@
-using Blog.Modules.Posts;
-
-namespace Blog.Modules.Comments;
+namespace Blog.Modules.Comment;
 
 public class Comment
 {
@@ -10,7 +8,7 @@ public class Comment
 
     // relations
     public int? PostId { get; set; }
-    public Post Post { get; set; }
+    public Post.Post Post { get; set; }
     
     public int? ParentId { get; set; }
     public Comment Parent { get; set; }

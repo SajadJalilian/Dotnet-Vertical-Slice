@@ -1,4 +1,4 @@
-namespace Blog.Modules.Posts.CreatePost;
+namespace Blog.Modules.Post.CreatePost;
 
 public interface ICreatePostHandler
 {

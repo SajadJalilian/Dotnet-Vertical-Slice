@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blog.Modules.Posts;
+namespace Blog.Modules.Post;
 
 public class PostEntityConfigurations: IEntityTypeConfiguration<Post>
 {

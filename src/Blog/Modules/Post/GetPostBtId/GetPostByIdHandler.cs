@@ -1,4 +1,4 @@
-namespace Blog.Modules.Posts.GetPostBtId;
+namespace Blog.Modules.Post.GetPostBtId;
 
 public class GetPostByIdHandler : IGetPostByIdHandler
 {

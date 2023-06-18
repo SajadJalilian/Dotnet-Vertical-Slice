@@ -1,4 +1,4 @@
-using Blog.Modules.Posts;
+using Blog.Modules.Post;
 using Blog.Shared.Api.Extensions.DependencyInjections;
 
 #region AddServices

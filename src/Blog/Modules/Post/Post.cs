@@ -1,6 +1,4 @@
-using Blog.Modules.Comments;
-
-namespace Blog.Modules.Posts;
+namespace Blog.Modules.Post;
 
 public class Post
 {
@@ -9,5 +7,5 @@ public class Post
     public string Body { get; set; }
     
     // relations
-    public ICollection<Comment> Comments { get; set; }
+    public ICollection<Comment.Comment> Comments { get; set; }
 }

@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Blog.Modules.Comments;
+namespace Blog.Modules.Comment;
 
 public class CommentEntityConfigurations: IEntityTypeConfiguration<Comment>
 {

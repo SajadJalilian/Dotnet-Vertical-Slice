@@ -1,4 +1,4 @@
-namespace Blog.Modules.Posts.GetPostsByFilter;
+namespace Blog.Modules.Post.GetPostsByFilter;
 
 public class GetPostsByFilterHandler : IGetPostsByFilterHandler
 {

@@ -1,3 +1,3 @@
-namespace Blog.Modules.Posts.GetPostsByFilter;
+namespace Blog.Modules.Post.GetPostsByFilter;
 
 public record GetPostsRequest(string Title, string Body);

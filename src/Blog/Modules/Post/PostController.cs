@@ -1,9 +1,9 @@
-using Blog.Modules.Posts.CreatePost;
-using Blog.Modules.Posts.GetPostBtId;
-using Blog.Modules.Posts.GetPostsByFilter;
+using Blog.Modules.Post.CreatePost;
+using Blog.Modules.Post.GetPostBtId;
+using Blog.Modules.Post.GetPostsByFilter;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Blog.Modules.Posts;
+namespace Blog.Modules.Post;
 
 [ApiController]
 [Route("posts/")]

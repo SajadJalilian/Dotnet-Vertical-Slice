@@ -1,7 +1,7 @@
 using Blog.Shared.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Modules.Posts.CreatePost;
+namespace Blog.Modules.Post.CreatePost;
 
 public class CreatePostHandler : ICreatePostHandler
 {

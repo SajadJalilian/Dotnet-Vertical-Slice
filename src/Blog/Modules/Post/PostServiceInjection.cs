@@ -1,7 +1,7 @@
-using Blog.Modules.Posts.GetPostBtId;
-using Blog.Modules.Posts.GetPostsByFilter;
+using Blog.Modules.Post.GetPostBtId;
+using Blog.Modules.Post.GetPostsByFilter;
 
-namespace Blog.Modules.Posts;
+namespace Blog.Modules.Post;
 
 public static class PostServiceInjection
 {

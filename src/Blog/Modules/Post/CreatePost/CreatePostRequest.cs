@@ -1,3 +1,3 @@
-namespace Blog.Modules.Posts.CreatePost;
+namespace Blog.Modules.Post.CreatePost;
 
 public record CreatePostRequest(string Title, string Body);
