@@ -31,6 +31,7 @@ if (environment is "Local" or "Development" or "NewFeature" or "Staging")
 
 app.MapControllers();
 app.UseConfiguredMigration();
+app.RegisterPostApis();
 
 app.Run();
 
