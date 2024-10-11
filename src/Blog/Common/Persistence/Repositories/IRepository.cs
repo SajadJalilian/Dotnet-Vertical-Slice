@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace Blog.Shared.Persistence.Repositories;
+namespace Blog.Common.Persistence.Repositories;
 
 public interface IRepository<TEntity> where TEntity : class
 {

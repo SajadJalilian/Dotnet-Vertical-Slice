@@ -1,4 +1,4 @@
-namespace Blog.Shared.Communal;
+namespace Blog.Common.Communal;
 
 public class OperationResult
 {

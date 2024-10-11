@@ -1,6 +1,8 @@
+using ErrorOr;
+
 namespace Blog.Modules.Post.UpdatePost;
 
 public interface IUpdatePostHandler
 {
-    Task<Post> UpdatePost(UpdatePostCommand command);
+    Task<ErrorOr<PostEntity>> UpdatePost(UpdatePostCommand command);
 }

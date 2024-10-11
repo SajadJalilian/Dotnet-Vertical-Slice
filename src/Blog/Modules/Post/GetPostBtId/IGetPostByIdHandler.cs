@@ -2,5 +2,5 @@ namespace Blog.Modules.Post.GetPostBtId;
 
 public interface IGetPostByIdHandler
 {
-    Task<Post> GetPostById(int id);
+    Task<PostEntity> GetPostById(int id);
 }

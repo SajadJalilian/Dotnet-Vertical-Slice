@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Shared.Persistence;
+namespace Blog.Common.Persistence;
 
 public class AppDbContext : DbContext
 {

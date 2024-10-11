@@ -1,6 +1,6 @@
+using Blog.Common.Api.Extensions.DependencyInjections;
+using Blog.Common.Api.Extensions.Middlewares;
 using Blog.Modules.Post;
-using Blog.Shared.Api.Extensions.DependencyInjections;
-using Blog.Shared.Api.Extensions.Middlewares;
 
 #region AddServices
 

@@ -1,4 +1,4 @@
-using Blog.Shared.Persistence;
+using Blog.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Modules.Post.CreatePost;
@@ -6,15 +6,15 @@ namespace Blog.Modules.Post.CreatePost;
 public class CreatePostHandler : ICreatePostHandler
 {
     private readonly AppDbContext _context;
-    private readonly DbSet<Post> _posts;
+    private readonly DbSet<PostEntity> _posts;
 
     public CreatePostHandler(AppDbContext context)
     {
         _context = context;
-        _posts = context.Set<Post>();
+        _posts = context.Set<PostEntity>();
     }
 
-    public async Task<Post> CreatePost(CreatePostCommand command)
+    public async Task<PostEntity> CreatePost(CreatePostCommand command)
     {
         // Validation
         var validator = new CreatePostValidator();
@@ -24,15 +24,10 @@ public class CreatePostHandler : ICreatePostHandler
         {
             foreach (var error in validationResult.Errors)
             {
-
             }
         }
 
-        var post = new Post
-        {
-            Title = command.Title,
-            Body = command.Body,
-        };
+        var post = PostEntity.Create(title: command.Title, body: command.Body);
 
         _posts.Add(post);
         await _context.SaveChangesAsync();

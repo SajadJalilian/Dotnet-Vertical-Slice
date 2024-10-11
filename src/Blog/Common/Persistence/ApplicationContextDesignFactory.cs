@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Blog.Shared.Persistence;
+namespace Blog.Common.Persistence;
 
 public class ApplicationContextDesignFactory : IDesignTimeDbContextFactory<AppDbContext>
 {
@@ -15,7 +15,7 @@ public class ApplicationContextDesignFactory : IDesignTimeDbContextFactory<AppDb
 
         var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
 
-        optionsBuilder.UseNpgsql(configuration.GetConnectionString("DbConnection"));
+        optionsBuilder.UseSqlite(configuration.GetConnectionString("DbConnection"));
 
         return new AppDbContext(optionsBuilder.Options);
     }

@@ -1,4 +1,4 @@
-namespace Blog.Shared.Api.Extensions.DependencyInjections;
+namespace Blog.Common.Api.Extensions.DependencyInjections;
 
 public static class AppSettingsBuilder
 {

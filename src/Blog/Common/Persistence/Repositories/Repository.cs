@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Shared.Persistence.Repositories;
+namespace Blog.Common.Persistence.Repositories;
 
 public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {

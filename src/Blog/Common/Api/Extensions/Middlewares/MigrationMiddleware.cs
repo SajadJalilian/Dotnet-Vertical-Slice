@@ -1,7 +1,7 @@
-using Blog.Shared.Persistence;
+using Blog.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Shared.Api.Extensions.Middlewares;
+namespace Blog.Common.Api.Extensions.Middlewares;
 
 public static class MigrationMiddleware
 {

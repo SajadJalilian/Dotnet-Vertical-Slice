@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog", "src\Blog\Blog.cspro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3EB63257-9E18-4C59-9450-0EBAA4045C8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce", "src\Ecommerce\Ecommerce.csproj", "{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,13 +20,8 @@ Global
 		{FC54CFAF-51F7-4C85-8E76-8767DEE0EFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC54CFAF-51F7-4C85-8E76-8767DEE0EFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC54CFAF-51F7-4C85-8E76-8767DEE0EFCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2DBDF3C0-82F0-4EC1-896E-FB187017DCE1} = {3EB63257-9E18-4C59-9450-0EBAA4045C8A}
 		{FC54CFAF-51F7-4C85-8E76-8767DEE0EFCB} = {3EB63257-9E18-4C59-9450-0EBAA4045C8A}
 	EndGlobalSection
 EndGlobal
