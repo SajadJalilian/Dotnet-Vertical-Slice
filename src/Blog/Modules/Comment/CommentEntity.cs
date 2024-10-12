@@ -5,7 +5,7 @@ namespace Blog.Modules.Comment;
 public class CommentEntity
 {
     public int Id { get; private set; }
-    public string Text { get; private set; }
+    public string Text { get; private set; } = default!;
 
     // relations
     public int PostId { get; private set; }
@@ -25,8 +25,9 @@ public class CommentEntity
         };
     }
 
-    public void UpdateTitle(string text)
+    public void UpdateText(string text)
     {
+        ArgumentException.ThrowIfNullOrEmpty("Comment text is empty", text);
         Text = text;
     }
 }
