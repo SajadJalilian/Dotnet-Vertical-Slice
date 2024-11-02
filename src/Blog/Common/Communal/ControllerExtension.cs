@@ -7,18 +7,34 @@ public static class ControllerExtension
     public static IActionResult ReturnResponse(this ControllerBase controller, OperationResult operation)
     {
         object response = operation.Value;
+        StandardApiResponse standardApiResponse;
         if (response is ErrorModel errorModel)
-            response = new ErrorResponse(errorModel);
+        {
+            standardApiResponse = new StandardApiResponse(
+                IsSuccess: false,
+                Result: null,
+                ErrorCode: errorModel.Code,
+                // TODO: Get language config from settings
+                ErrorMessage: errorModel.Messages[Language.Farsi]);
+        }
+        else
+        {
+            standardApiResponse = new StandardApiResponse(
+                IsSuccess: true,
+                Result: response,
+                ErrorCode: null,
+                ErrorMessage: null);
+        }
 
         return operation.Status switch
         {
-            OperationResultStatus.Ok => controller.Ok(response),
-            OperationResultStatus.Created => controller.Created("-", response), // URI can not be null. I will get fixed in .NET 8
-            OperationResultStatus.InvalidRequest => controller.BadRequest(response),
-            OperationResultStatus.NotFound => controller.NotFound(response),
-            OperationResultStatus.Unauthorized => controller.UnprocessableEntity(response),
-            OperationResultStatus.Unprocessable => controller.UnprocessableEntity(response),
-            _ => controller.UnprocessableEntity(response)
+            OperationResultStatus.Ok => controller.Ok(standardApiResponse),
+            OperationResultStatus.Created => controller.Created("-", standardApiResponse),
+            OperationResultStatus.InvalidRequest => controller.BadRequest(standardApiResponse),
+            OperationResultStatus.NotFound => controller.NotFound(standardApiResponse),
+            OperationResultStatus.Unauthorized => controller.UnprocessableEntity(standardApiResponse),
+            OperationResultStatus.Unprocessable => controller.UnprocessableEntity(standardApiResponse),
+            _ => controller.UnprocessableEntity(standardApiResponse)
         };
     }
 }

@@ -12,7 +12,7 @@ public class ErrorResponse
         Message = language switch
         {
             EnglishLanguage => error.Messages[Language.English],
-            DutchLanguage => error.Messages[Language.Dutch],
+            DutchLanguage => error.Messages[Language.Farsi],
             _ => error.Messages[Language.English],
         };
     }
